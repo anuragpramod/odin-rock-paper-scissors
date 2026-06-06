@@ -12,16 +12,14 @@ function getComputerChoice() {
     return choice;
 }
 
-const computerChoice = getComputerChoice();
-
 
 function getHumanChoice() {
     let choice = "scissors";
-    switch (prompt("Enter 1 for rock, 2 for paper and 3 for scissors.")) {
-        case "1":
+    switch (prompt("Enter rock, paper or scissors.").toLowerCase) {
+        case "rock":
             choice = "rock";
             break;
-        case "2":
+        case "paper":
             choice = "paper";
         default:
             break;
@@ -29,7 +27,6 @@ function getHumanChoice() {
     return choice;
 }
 
-const humanChoice = getHumanChoice();
 
-console.log("Human - " + humanChoice);
-console.log("Computer - " + computerChoice);
+const computerChoice = getComputerChoice();
+const humanChoice = getHumanChoice();
