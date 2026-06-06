@@ -82,11 +82,30 @@ function playRound(computerChoice,humanChoice) {
 }
 
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
+function playGame(rounds) {
+    let computerSelection = "";
+    let humanSelection = "";
+    for (let index = 0; index < rounds; index++) {
+        computerSelection = getComputerChoice();
+        humanSelection = getHumanChoice();
+        const result = playRound(computerSelection,humanSelection);
+        console.log("Round Number " + (index+1));
+        console.log("Computer - " + computerSelection);
+        console.log("Human - " + humanSelection);
+        console.log(result);
+        console.log("Computer Score - " + computerScore);
+        console.log("Human Score - " + humanScore);
+    }
+    let finalResult = "";
+    if (computerScore > humanScore) {
+        finalResult = "Computer wins the game!";
+    } else if (computerScore < humanScore) {
+        finalResult = "Human wins the game!";
+    } else {
+        finalResult = "This game is a tie."
+    }
+    return finalResult;
+}
 
-const result = playRound(computerSelection,humanSelection)
 
-console.log("Computer - " + computerSelection);
-console.log("Human - " + humanSelection);
-console.log(result);
+console.log(playGame(5));
